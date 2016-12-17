@@ -1,8 +1,3 @@
-function r(d)=d/2;
-
-//long0_vis=1; long1_vis=40; long2_vis=5;
-//diam0_vis=8; diam1_vis=5; diam2_vis=6;
-
 diam0_tuyau=16+0.2;
 ecart_vis=100;
 
@@ -66,33 +61,13 @@ module Structure() {
     mirror([1,0,0]) _Structure();
     translate([0,-long0_cadre/2+retr_coude,0]) rotate([0,90,0]) Tuyau_Ep1(larg1_cadre,diam0_tuyau);
     translate([0,long0_cadre/2-retr_coude,0]) rotate([0,90,0]) Tuyau_Ep1(larg1_cadre,diam0_tuyau);
-//    translate([larg0_cadre/2-retr_coude,-ecart_vis/2,0]) rotate([90,0,0]) Tuyau_Ep1(20,diam0_tuyau+2);
-//    translate([larg0_cadre/2-ret4r_coude,ecart_vis/2,0]) rotate([90,0,0]) Tuyau_Ep1(20,diam0_tuyau+2);
   }
 }
 
-
-/*
-haut_pince=20;
-diam_guidon=40; dist_guidon=10;
-diam_trou=5; dist_trou=10; ecar_trou=100;
-diam_arrondi=4;
-
-module Pince1() {
-  hull() {
-    circle(r=diam_guidon-0.1);
-    translate([diam_guidon+dist_guidon+diam_trou+dist_trou-diam_arrondi/2,0]) {
-      translate([0,ecar_trou/2+diam_trou/2+dist_trou-diam_arrondi/2]) circle(r=diam_trou/2);
-      translate([0,-(ecar_trou/2+diam_trou/2+dist_trou-diam_arrondi/2)]) circle(r=diam_trou/2);
-    }
-  }
-}
-*/
 
 diam_arrondi=4;
 diam_guidon=34+0.4;
 ecar_charniere=54;
-//larg_charniere=12;
 larg_charniere=16;
 diam_vis=6+0.2; 
 prof_encoche=12+diam_vis;
@@ -160,7 +135,7 @@ module Visu() {
     translate([diam_guidon/2+retr_guidon+prof_encoche/2,-ecar_charniere/2-larg_charniere/2,0]) Charniere();
     translate([diam_guidon/2+retr_guidon+prof_encoche/2,ecar_charniere/2+larg_charniere/2,0]) Charniere(true);
   }
-//  translate([larg0_cadre/2+diam_guidon/2+retr_guidon+prof_encoche+espa_charniere+1,0,0]) Structure();
+  translate([larg0_cadre/2+diam_guidon/2+retr_guidon+prof_encoche+espa_charniere+1,0,0]) Structure();
 }
 
 
@@ -171,9 +146,9 @@ module Imprime() {
     translate([15,15,0]) rotate([90,0,-90]) Charniere(true);
   }
 }
-translate([0,45,0]) 
-//Visu();
-Imprime();
+//translate([0,45,0]) 
+Visu();
+//Imprime();
 
 // ATTENTION AU PARAMETRE POUR CHARNIERE
 echo(ecar_charniere+2*larg_charniere);
